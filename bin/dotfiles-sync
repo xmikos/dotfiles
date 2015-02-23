@@ -1,0 +1,111 @@
+#!/bin/bash
+
+# Update dotfiles (and scripts) from Git repository
+# and link them to your home directory
+#
+# Author: Michal Krenek (Mikos)
+# Email: m.krenek@gmail.com
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+# Basic settings
+DOTFILES_BACKUP=${BACKUP:-1}
+DOTFILES_REPOSITORY="https://github.com/xmikos/dotfiles.git"
+DOTFILES_DIRECTORY="$HOME/dotfiles"
+DOTFILES_IGNORE=(".git" ".gitignore" ".gitmodules" "install")
+
+# Formatting
+ALL_OFF="$(tput sgr0)"
+BOLD="$(tput bold)"
+BLUE="${BOLD}$(tput setaf 4)"
+GREEN="${BOLD}$(tput setaf 2)"
+
+msg() {
+	local mesg=$1; shift
+	printf "${GREEN}==>${ALL_OFF}${BOLD} ${mesg}${ALL_OFF}\n" "$@" >&2
+}
+
+msg2() {
+    local mesg=$1; shift
+    printf "${BLUE}  ->${ALL_OFF}${BOLD} ${mesg}${ALL_OFF}\n" "$@" >&2
+}
+
+# Basic functions
+createlink() {
+    local fromfile="$1"
+    local todir="$2"
+    local filebase="$(basename "$fromfile")"
+
+    # Exit if $filebase is empty to save us from deleting our home directory!
+    if [ -z "$filebase" ]; then
+        msg2 "ERROR: Empty filebase!"
+        return
+    fi
+
+    # Make backup if enabled (default)
+    if [ -e "$todir/$filebase" ] && [ ! -L "$todir/$filebase" ]; then
+        if [ "$DOTFILES_BACKUP" = 1 ]; then
+            msg2 "File %s already exists! Creating backup..." "$filebase"
+            cp -a "$todir/$filebase" "$todir/${filebase}.dotfiles-backup"
+        else
+            msg2 "File %s already exists! Overwriting..." "$filebase"
+        fi
+    fi
+
+    msg2 "Linking %s to %s" "$fromfile" "$todir/$filebase"
+    rm -rf "$todir/$filebase"
+    ln -sf "$fromfile" "$todir/$filebase"
+}
+
+# Clone dotfiles repository if it doesn't exist yet
+if [ ! -d "$DOTFILES_DIRECTORY" ]; then
+    msg "Cloning Git repository to %s directory..." "$DOTFILES_DIRECTORY"
+    git clone --recursive "$DOTFILES_REPOSITORY" "$DOTFILES_DIRECTORY"
+fi
+
+# Go to dotfiles directory
+cd "$DOTFILES_DIRECTORY"
+
+# Update dotfiles repository and submodules
+msg "Updating local Git repository and submodules..."
+git pull
+git submodule update --init --recursive
+
+# Build list of excluded files/directories
+excludes=""
+for e in "${DOTFILES_IGNORE[@]}"; do
+    excludes="$excludes ! -name $e"
+done
+
+# Link dotfiles to their real locations in home directory
+msg "Linking dotfiles to %s directory..." "$HOME"
+find "$DOTFILES_DIRECTORY" -mindepth 1 -maxdepth 1 ! -name bin $excludes | while read f; do
+    createlink "$f" "$HOME"
+done
+
+# Create ~/bin directory if it doesn't exist yet
+if [ ! -d "$HOME/bin" ]; then
+    msg "Creating %s directory..." "$HOME/bin"
+    mkdir -p "$HOME/bin"
+fi
+
+# Link bin scripts to ~/bin
+msg "Linking scripts to %s directory..." "$HOME/bin"
+find "$DOTFILES_DIRECTORY/bin" -mindepth 1 -maxdepth 1 -type f | while read f; do
+    createlink "$f" "$HOME/bin"
+done
+
+echo
+msg "All done! You can sync your dotfiles again by running:"
+echo "    dotfiles-sync"
