@@ -1,0 +1,16 @@
+# Use the text that has already been typed as the prefix for searching through history
+# (more intelligent Up/Down arrow keys)
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+
+# Don't list matches immediately for words which have more than one possible completion
+set show-all-if-ambiguous off
+
+# List matches immediately for words without any possible partial completion
+set show-all-if-unmodified on
+
+# Do not duplicate portions of the word if you perform completion in the middle of it
+set skip-completed-text on
+
+# Never rings the bell
+set bell-style none
