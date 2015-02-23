@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# Colorize output of unified diff
+diff -r -u "$@" | sed -e "s/^\-.*$/\x1b[1;31m\0\x1b[1;0m/g" -e "s/^\+.*$/\x1b[1;32m\0\x1b[1;0m/g" -e "s/^\@.*$/\x1b[1;34m\0\x1b[1;0m/g"
