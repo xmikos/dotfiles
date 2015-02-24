@@ -42,15 +42,15 @@ What's included?
     - sensible basic Vim settings
     - nice 256-color scheme which looks good on transparent terminals
     - standard Windows-like keybindings (Ctrl-C/Ctrl-V/Ctrl-X,
-      Ctrl-Ins/Shift-Ins, CTRL-F, F3/Shift-F3, Ctrl-S, Ctrl-O, Ctrl-Q, etc.)
-      and Shift + arrows for selecting text
+      Ctrl-Ins/Shift-Ins, Ctrl-F, F3/Shift-F3, Ctrl-S, Ctrl-O, Ctrl-Q, etc.)
+      and Shift + Arrows for selecting text
     - cut & paste lines with Ctrl-K/Ctrl-U (like in Nano)
     - Insert key toggle between normal and insert mode
     - (un)comment selections with Ctrl-D (like in Kate)
     - (un)indent selected blocks of code with Tab/Shift-Tab
     - code completion with Tab
     - simple tabs like in web browser (Ctrl-T/Ctrl-W, Ctrl-PageUp/PageDown)
-    - switch between split windows with Alt-PageUp/Alt-PageDown
+    - switch between split windows with Alt-PageUp/PageDown
 
   Included Vim plugins:
     - _Pathogen_ - management of individually installed plugins in ~/.vim/bundle
