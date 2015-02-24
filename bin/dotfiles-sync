@@ -23,7 +23,7 @@
 DOTFILES_BACKUP=${BACKUP:-1}
 DOTFILES_REPOSITORY="https://github.com/xmikos/dotfiles.git"
 DOTFILES_DIRECTORY="$HOME/dotfiles"
-DOTFILES_IGNORE=(".git" ".gitignore" ".gitmodules" "install")
+DOTFILES_IGNORE=(".git" ".gitignore" ".gitmodules" "install" "README.md")
 
 # Formatting
 ALL_OFF="$(tput sgr0)"
