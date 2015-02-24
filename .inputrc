@@ -1,3 +1,6 @@
+# Load system-wide /etc/inputrc
+$include /etc/inputrc2
+
 # Use the text that has already been typed as the prefix for searching through history
 # (more intelligent Up/Down arrow keys)
 "\e[A": history-search-backward
