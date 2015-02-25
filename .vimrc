@@ -153,6 +153,20 @@ else
   inoremap <C-F> <C-O>/
 endif
 
+" Fix copy & paste in Vim compiled without clipboard support
+if !has("clipboard")
+  vnoremap <C-X>          x
+  vnoremap <S-Del>        x
+  vnoremap <C-C>          y
+  vnoremap <C-Insert>     y
+  noremap  <C-V>          gP
+  noremap  <S-Insert>     gP
+  inoremap <C-V>          <C-O>gP
+  inoremap <S-Insert>     <C-O>gP
+  cnoremap <C-V>          <C-R>"
+  cnoremap <S-Insert>     <C-R>"
+endif
+
 " CTRL+arrow/backspace/delete
 inoremap <C-BackSpace> <C-o>db
 vnoremap <C-BackSpace> <C-c>db
