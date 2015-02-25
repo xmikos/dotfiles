@@ -94,6 +94,9 @@ hi ColorColumn guibg=Black ctermbg=Black
 
 " *** KEYBINDINGS ***
 
+" Toggle paste mode with F2
+set pastetoggle=<F2>
+
 " Insert key toggle between normal and insert mode
 nnoremap <Insert>  i
 inoremap <Insert>  <Esc>
