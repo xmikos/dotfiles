@@ -62,7 +62,7 @@ set laststatus=2
 set noshowmode
 
 " Open Tagbar automatically for supported file types
-autocmd BufEnter * nested :call tagbar#autoopen(0)
+autocmd FileType * nested :call tagbar#autoopen(0)
 
 
 " *** COLOR SCHEMES ***
@@ -96,6 +96,11 @@ hi ColorColumn guibg=Black ctermbg=Black
 
 " Toggle paste mode with F2
 set pastetoggle=<F2>
+
+" Toggle Tagbar (class browser) with F8
+noremap <F8>       :TagbarToggle<CR>
+inoremap <F8>      <C-O>:TagbarToggle<CR>
+vnoremap <F8>      <C-C>:TagbarToggle<CR>
 
 " Insert key toggle between normal and insert mode
 nnoremap <Insert>  i
