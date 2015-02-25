@@ -98,9 +98,14 @@ hi ColorColumn guibg=Black ctermbg=Black
 set pastetoggle=<F2>
 
 " Toggle Tagbar (class browser) with F8
-noremap <F8>       :TagbarToggle<CR>
+noremap  <F8>      :TagbarToggle<CR>
 inoremap <F8>      <C-O>:TagbarToggle<CR>
 vnoremap <F8>      <C-C>:TagbarToggle<CR>
+
+" Toggle NERDTree (file browser) with F9
+noremap  <F9>      :NERDTreeToggle<CR>
+inoremap <F9>      <C-O>:NERDTreeToggle<CR>
+vnoremap <F9>      <C-C>:NERDTreeToggle<CR>
 
 " Insert key toggle between normal and insert mode
 nnoremap <Insert>  i
