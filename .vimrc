@@ -80,12 +80,13 @@ let g:rehash256 = 1             "Fix molokai colors on 256-color terminals
 "colorscheme molokai
 colorscheme wombat
 
-" Fix colors in wombat scheme
-hi SignColumn ctermfg=241 ctermbg=232 cterm=none guifg=#857b6f guibg=#080808 gui=none
-"hi clear SignColumn
+" Fix line number/sign column colors in wombat scheme (to be like in jellybeans)
+hi SignColumn ctermfg=242 ctermbg=236 cterm=none guifg=#777777 guibg=#333333 gui=none
+hi LineNr ctermfg=59 ctermbg=233 cterm=none guifg=#605958 guibg=#151515 gui=none
 
 " Transparent background in most color schemes
-hi Normal guibg=Black ctermbg=NONE
+hi Normal guibg=Black ctermbg=none
+hi NonText guibg=Black ctermbg=none
 
 " Set line length markers and make them black (so they can only be seen on current line)
 set colorcolumn=80,100,120
