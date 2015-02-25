@@ -124,10 +124,13 @@ nnoremap <C-N>     :tabnew<CR>
 inoremap <C-W>     <C-O>:quit<CR>
 nnoremap <C-W>     :quit<CR>
 
-" CTRL-Q is Quit
-noremap  <C-Q>      :quit<CR>
-vnoremap <C-Q> <C-O>:quit<CR>
-inoremap <C-Q> <C-O>:quit<CR>
+" CTRL-Q and F10 is Quit All
+noremap  <C-Q>      :quitall<CR>
+vnoremap <C-Q> <C-O>:quitall<CR>
+inoremap <C-Q> <C-O>:quitall<CR>
+noremap  <F10>      :quitall<CR>
+vnoremap <F10> <C-O>:quitall<CR>
+inoremap <F10> <C-O>:quitall<CR>
 
 " Next/previous with F3/Shift-F3
 noremap    <F3>      n
