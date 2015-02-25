@@ -62,7 +62,7 @@ set laststatus=2
 set noshowmode
 
 " Open Tagbar automatically for supported file types
-autocmd FileType * nested :call tagbar#autoopen(0)
+"autocmd FileType * nested :call tagbar#autoopen(0)
 
 
 " *** COLOR SCHEMES ***
