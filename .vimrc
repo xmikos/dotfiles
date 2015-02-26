@@ -103,10 +103,18 @@ noremap  <F8>      :TagbarToggle<CR>
 inoremap <F8>      <C-O>:TagbarToggle<CR>
 vnoremap <F8>      <C-C>:TagbarToggle<CR>
 
-" Toggle NERDTree (file browser) with F9
-noremap  <F9>      :NERDTreeToggle<CR>
-inoremap <F9>      <C-O>:NERDTreeToggle<CR>
-vnoremap <F9>      <C-C>:NERDTreeToggle<CR>
+" Toggle NERDTree (file browser) with F9 and show location of current file
+function! NERDTreeToggleSync()
+    NERDTreeToggle
+    if nerdtree#isTreeOpen()
+        wincmd p
+        NERDTreeFind
+    endif
+endfunction
+
+noremap  <F9>      :call NERDTreeToggleSync()<CR>
+inoremap <F9>      <C-O>:call NERDTreeToggleSync()<CR>
+vnoremap <F9>      <C-C>:call NERDTreeToggleSync()<CR>
 
 " Insert key toggle between normal and insert mode
 nnoremap <Insert>  i
