@@ -132,8 +132,8 @@ inoremap <C-T>     <C-O>:tabnew<CR>
 nnoremap <C-T>     :tabnew<CR>
 inoremap <C-N>     <C-O>:tabnew<CR>
 nnoremap <C-N>     :tabnew<CR>
-inoremap <C-W>     <C-O>:quit<CR>
-nnoremap <C-W>     :quit<CR>
+inoremap <C-W>     <C-O>:bd<CR>
+nnoremap <C-W>     :bd<CR>
 
 " CTRL-Q and F10 is Quit All
 noremap  <C-Q>      :quitall<CR>
