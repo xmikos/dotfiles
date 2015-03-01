@@ -13,7 +13,7 @@ Installation
 ------------
 
     cd ~
-    git clone git https://github.com/xmikos/dotfiles.git
+    git clone https://github.com/xmikos/dotfiles.git
     cd dotfiles
     ./install
 
