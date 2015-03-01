@@ -8,6 +8,9 @@ Requirements
 - bash
 - coreutils
 - findutils
+- vim
+- ctags
+- enca
 
 Installation
 ------------
@@ -63,4 +66,3 @@ What's included?
     - _Tagbar_ - class browser
     - _GitGutter_ - shows signs for modified lines (changes in Git working tree)
     - some great colorschemes (_Hybrid_, _Jellybeans_, _Molokai_, _Wombat_)
-
