@@ -57,6 +57,7 @@ What's included?
     - _AutoFenc_ - automatically detect and set file encoding when opening a file
     - _LightLine_ - light and configurable statusline/tabline
     - _NERD Commenter_ - comment/uncomment selections
+    - _NERD Tree_ - file browser
     - _smarthomekey_ - intelligent Home key which respects indentation
     - _Supertab_ - code completion with Tab key
     - _Tagbar_ - class browser
