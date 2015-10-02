@@ -7,7 +7,7 @@
 
 # Aliases
 alias grep='grep --color=auto'
-alias ls='ls --color=auto'
+alias ls='LC_COLLATE=C ls --color=auto --group-directories-first'
 alias la='ls -alh'
 alias h='history'
 alias v='vim'
