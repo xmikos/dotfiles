@@ -64,6 +64,9 @@ set noshowmode
 " Open Tagbar automatically for supported file types
 "autocmd FileType * nested :call tagbar#autoopen(0)
 
+" Operator highlighting color
+let g:ophigh_color = 111
+
 
 " *** COLOR SCHEMES ***
 

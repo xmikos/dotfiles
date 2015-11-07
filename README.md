@@ -65,4 +65,5 @@ What's included?
     - _Supertab_ - code completion with Tab key
     - _Tagbar_ - class browser
     - _GitGutter_ - shows signs for modified lines (changes in Git working tree)
+    - _vim-operator-highlight_ - highlights operator characters for every language
     - some great colorschemes (_Hybrid_, _Jellybeans_, _Molokai_, _Wombat_)

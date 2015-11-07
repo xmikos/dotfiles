@@ -16,7 +16,7 @@ alias rm='rm -I'
 alias dmesg='dmesg -H -P'
 
 # Variables
-export PATH=$PATH:/usr/local/bin:/usr/local/sbin:$HOME/bin
+export PATH=$PATH:/usr/local/bin:/usr/local/sbin:$HOME/.local/bin:$HOME/bin
 export EDITOR=vim
 export PAGER=less
 export LESS=-R
