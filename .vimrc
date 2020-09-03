@@ -96,6 +96,9 @@ colorscheme wombat
 hi SignColumn ctermfg=242 ctermbg=236 cterm=none guifg=#777777 guibg=#333333 gui=none
 hi LineNr ctermfg=59 ctermbg=233 cterm=none guifg=#605958 guibg=#151515 gui=none
 
+" Remove ugly underline under current line number
+hi CursorLineNr cterm=none gui=none
+
 " Transparent background in most color schemes
 hi Normal guibg=Black ctermbg=none
 hi NonText guibg=Black ctermbg=none
