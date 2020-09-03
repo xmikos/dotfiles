@@ -104,6 +104,12 @@ hi NonText guibg=Black ctermbg=none
 set colorcolumn=80,100,120
 hi ColorColumn guibg=Black ctermbg=Black
 
+" Change GitGutter diff sign colors to standard ones
+let g:gitgutter_set_sign_backgrounds=1
+hi GitGutterAdd guifg=#009900 ctermfg=2
+hi GitGutterChange guifg=#bbbb00 ctermfg=3
+hi GitGutterDelete guifg=#ff2222 ctermfg=1
+
 " Highlight 'self' in Python syntax
 augroup python
     autocmd!
