@@ -57,7 +57,16 @@ syntax on
 set updatetime=1000
 
 " Configure lightline.vim plugin and disable legacy Vim status texts
-let g:lightline = {'colorscheme': 'wombat'}
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
 set laststatus=2
 set noshowmode
 
