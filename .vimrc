@@ -104,6 +104,12 @@ hi NonText guibg=Black ctermbg=none
 set colorcolumn=80,100,120
 hi ColorColumn guibg=Black ctermbg=Black
 
+" Highlight 'self' in Python syntax
+augroup python
+    autocmd!
+    autocmd! Syntax python :syn keyword pythonBuiltin self
+augroup END
+
 
 " *** KEYBINDINGS ***
 
